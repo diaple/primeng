@@ -1,6 +1,6 @@
 {
   "name": "@diaple/primeng",
-  "version": "11.4.1-DIAPLE",
+  "version": "11.4.1",
   "license": "MIT",
   "scripts": {
     "ng": "ng",
