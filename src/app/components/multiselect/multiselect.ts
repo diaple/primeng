@@ -148,12 +148,7 @@ export class MultiSelectItem {
                                     </ng-container>
                                 </cdk-virtual-scroll-viewport>
                             </ng-template>
-                            <li *ngIf="emptyOptions" class="p-multiselect-empty-message">
-                                <ng-container *ngIf="!emptyFilterTemplate; else emptyFilter">
-                                    {{emptyFilterMessage}}
-                                </ng-container>
-                                <ng-container #emptyFilter *ngTemplateOutlet="emptyFilterTemplate"></ng-container>
-                            </li>
+                            <li *ngIf="emptyOptions" class="p-multiselect-empty-message">{{emptyFilterMessage}}</li>
                         </ng-template>
                     </ul>
                 </div>
@@ -376,8 +371,6 @@ export class MultiSelect implements OnInit,AfterViewInit,AfterContentInit,AfterV
 
     public footerTemplate: TemplateRef<any>;
 
-    public emptyFilterTemplate: TemplateRef<any>;
-
     public selectedItemsTemplate: TemplateRef<any>;
 
     public headerCheckboxFocus: boolean;
@@ -415,10 +408,6 @@ export class MultiSelect implements OnInit,AfterViewInit,AfterContentInit,AfterV
 
                 case 'header':
                     this.headerTemplate = item.template;
-                break;
-
-                case 'emptyfilter':
-                    this.emptyFilterTemplate = item.template;
                 break;
 
                 case 'footer':

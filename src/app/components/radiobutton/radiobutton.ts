@@ -107,9 +107,11 @@ export class RadioButton implements ControlValueAccessor, OnInit, OnDestroy {
     constructor(public cd: ChangeDetectorRef, private injector: Injector, private registry: RadioControlRegistry) {}
 
     ngOnInit() {
-        this.control = this.injector.get(NgControl);
-        this.checkName();
-        this.registry.add(this.control, this);
+        if (this.formControlName) {
+            this.control = this.injector.get(NgControl);
+            this.checkName();
+            this.registry.add(this.control, this);
+        }
     }
     
     handleClick(event, radioButton, focus) {
@@ -131,7 +133,11 @@ export class RadioButton implements ControlValueAccessor, OnInit, OnDestroy {
             this.inputViewChild.nativeElement.checked = true;
             this.checked = true;
             this.onModelChange(this.value);
-            this.registry.select(this);
+            
+            if (this.formControlName) {
+                this.registry.select(this);
+            }
+
             this.onClick.emit(event);
         }
     }
@@ -179,7 +185,9 @@ export class RadioButton implements ControlValueAccessor, OnInit, OnDestroy {
     }
 
     ngOnDestroy() {
-        this.registry.remove(this);
+        if (this.formControlName) {
+            this.registry.remove(this);
+        }
     }
 
     private checkName() {
