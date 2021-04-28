@@ -2129,12 +2129,14 @@ export class Calendar implements OnInit,OnDestroy,ControlValueAccessor {
 		}
     }
 
-    writeValue(value: any) : void {
+    writeValue(value) {
         this.value = value;
+        if(typeof this.value === 'string'){
+            this.value = new Date(this.value);
+        }
         if (this.value && typeof this.value === 'string') {
             this.value = this.parseValueFromString(this.value);
         }
-
         this.updateInputfield();
         this.updateUI();
         this.cd.markForCheck();
