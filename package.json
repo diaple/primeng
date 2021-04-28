@@ -1,6 +1,6 @@
 {
   "name": "@diaple/primeng",
-  "version": "1.0.1",
+  "version": "1.0.0",
   "license": "MIT",
   "scripts": {
     "ng": "ng",
@@ -10,7 +10,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "build-lib": "ng build primeng-library && gulp build-assets"
+    "build-lib": "ng build primeng-library && gulp build-assets",
+    "publish-version": "npm version patch && git push origin --tags && npm publish --registry https://npm.diaple.com:4873"
   },
   "repository": {
     "type": "git",
