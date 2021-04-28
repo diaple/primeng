@@ -1,9 +1,10 @@
 {
   "name": "@diaple/primeng",
-  "version": "1.0.8",
+  "version": "1.0.7",
   "license": "MIT",
   "scripts": {
     "ng": "ng",
+    "postinstall": "ngcc --properties es2015 browser module main --first-only --create-ivy-entry-points",
     "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
