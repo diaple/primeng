@@ -1,6 +1,6 @@
 {
-    "name": "@diaple/primeng",
-    "version": "1.0.10",
+    "name": "primeng",
+    "version": "1.0.11",
     "repository": {
       "type": "git",
       "url": "https://github.com/diaple/primeng.git"

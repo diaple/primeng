@@ -2131,9 +2131,15 @@ export class Calendar implements OnInit,OnDestroy,ControlValueAccessor {
 
     writeValue(value: any) : void {
         this.value = value;
+
+        //soporte para ISO8601
         if (this.value && typeof this.value === 'string') {
-            this.value = this.parseValueFromString(this.value);
+            this.value = new Date(this.value);
         }
+        //soporte anterior para fechas formateadas segun dateFormat
+        /*if (this.value && typeof this.value === 'string') {
+            this.value = this.parseValueFromString(this.value);
+        }*/
 
         this.updateInputfield();
         this.updateUI();
